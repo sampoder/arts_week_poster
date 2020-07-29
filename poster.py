@@ -3,35 +3,6 @@ import os
 import math 
 import glob
 
-
-if height1 >= width1:
-
-    nearest_multiple_width = 5 * round(width1/5)
-
-    if nearest_multiple_width >  width1:
-        nearest_multiple_width-=5
-
-    print(width1)
-    print(nearest_multiple_width)
-
-    amountChanged = nearest_multiple_width/5
-
-    nearest_multiple_height = 7 * amountChanged
-
-else:
-
-    nearest_multiple_height = 7 * round(height1/7)
-
-    if nearest_multiple_height >  height1:
-        nearest_multiple_height-=7
-
-    amountChanged = nearest_multiple_height/7
-
-    nearest_multiple_width = 5 * amountChanged
-
-im1 = image1.crop((((width1-nearest_multiple_width)/2), ((height1-nearest_multiple_height)/2), width1-((width1-nearest_multiple_width)/2), height1-((height1-nearest_multiple_height)/2))) 
-im1.show()
-
 files = next(os.walk("img"))[2] #dir is your directory path as string
 
 amountsquares = math.sqrt(len(files)-1)
