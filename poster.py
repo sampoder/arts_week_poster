@@ -133,7 +133,7 @@ while i > 0:
     i-=1
 
 background = actualresult
-foreground = Image.open("Copy of Arts Week-5.png")
+foreground = Image.open("Copy of Arts Week-8.png")
 
 background.paste(foreground, (0, 0), foreground)
 background.show()
