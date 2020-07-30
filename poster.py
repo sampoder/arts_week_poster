@@ -3,61 +3,6 @@ import os
 import math 
 import glob
 
-def merge_images(file1, file2):
-    """Merge two images into one, displayed side by side
-    :param file1: path to first image file
-    :param file2: path to second image file
-    :return: the merged Image object
-    """
-    image1 = Image.open(file1)
-    image2 = Image.open(file2)
-
-    (width1, height1) = image1.size
-    (width2, height2) = image2.size
-
-    result_width = width1 + width2
-    result_height = max(height1, height2)
-
-    result = Image.new('RGB', (result_width, result_height))
-    result.paste(im=image1, box=(0, 0))
-    result.paste(im=image2, box=(width1, 0))
-    result.paste(im=result, box=(width1+width2, 0))
-    result.save('out.bmp')
-    return result
-
-image1 = Image.open("img/148.png")
-
-(width1, height1) = image1.size
-
-
-if height1 >= width1:
-
-    nearest_multiple_width = 5 * round(width1/5)
-
-    if nearest_multiple_width >  width1:
-        nearest_multiple_width-=5
-
-    print(width1)
-    print(nearest_multiple_width)
-
-    amountChanged = nearest_multiple_width/5
-
-    nearest_multiple_height = 7 * amountChanged
-
-else:
-
-    nearest_multiple_height = 7 * round(height1/7)
-
-    if nearest_multiple_height >  height1:
-        nearest_multiple_height-=7
-
-    amountChanged = nearest_multiple_height/7
-
-    nearest_multiple_width = 5 * amountChanged
-
-im1 = image1.crop((((width1-nearest_multiple_width)/2), ((height1-nearest_multiple_height)/2), width1-((width1-nearest_multiple_width)/2), height1-((height1-nearest_multiple_height)/2))) 
-im1.show()
-
 files = next(os.walk("img"))[2] #dir is your directory path as string
 
 amountsquares = math.sqrt(len(files)-1)
