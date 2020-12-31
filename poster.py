@@ -26,7 +26,11 @@ while i > 0:
     b = amountsquares
     while b > 0:
 
-        image1 = Image.open(files[x])
+        print(len(files))
+
+        print(x)
+
+        image1 = Image.open(files[x-1])
 
         (width1, height1) = image1.size
 
